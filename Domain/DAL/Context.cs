@@ -10,7 +10,7 @@ namespace Domain.DAL
 {
     public class Context : DbContext
     {
-        public DbSet<Consumer> Customers { get; set; }
+        public DbSet<Consumer> Consumers { get; set; }
         public Context()
         {
             sqlServer = ConfigurationHelper.Configuration.GetConnectionString("SQLServer");

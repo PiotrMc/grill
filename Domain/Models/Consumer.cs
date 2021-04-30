@@ -10,11 +10,12 @@ namespace Domain.Models
 {
     public class Consumer : Entity
     {
-        public String CustomerFirstName { get; set; }
-        public String CustomerLastName { get; set; }
-        public String CustomerEmail { get; set; }
+        public String ConsumerFirstName { get; set; }
+        public String ConsumerLastName { get; set; }
+        public String ConsumerEmail { get; set; }
         [Column(TypeName = "Date")]
-        public DateTime CustomerDateofBirth { get; set; }
+        
+        public DateTime ConsumerDateofBirth { get; set; }
 
     }
 }
