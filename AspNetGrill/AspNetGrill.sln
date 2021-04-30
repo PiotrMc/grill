@@ -7,6 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{45124181-A68
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrillApi", "..\GrillApi\GrillApi.csproj", "{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{F64028BF-38DC-4D42-AC2C-52593D086BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityHelper", "..\EntityHelper\EntityHelper.csproj", "{6229F263-1962-4E58-AAD6-7522F2BAE99F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D1D2C9C7-4403-446E-B0B6-907EAC36B930}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationHelper", "..\ConfigurationHelper\ConfigurationHelper.csproj", "{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +27,27 @@ Global
 		{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6229F263-1962-4E58-AAD6-7522F2BAE99F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6229F263-1962-4E58-AAD6-7522F2BAE99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6229F263-1962-4E58-AAD6-7522F2BAE99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6229F263-1962-4E58-AAD6-7522F2BAE99F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{804D5FA3-0CEB-4937-A7DD-F66C118CE80B} = {45124181-A682-4CD6-B74D-39C9049B6DF3}
+		{6229F263-1962-4E58-AAD6-7522F2BAE99F} = {F64028BF-38DC-4D42-AC2C-52593D086BA9}
+		{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE} = {D1D2C9C7-4403-446E-B0B6-907EAC36B930}
+		{BEEE55E3-8C2F-422C-995E-DBA7D916E85A} = {F64028BF-38DC-4D42-AC2C-52593D086BA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDDECDA4-C811-4097-8C76-0AF9002BA39E}
