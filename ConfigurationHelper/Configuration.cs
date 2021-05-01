@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿
+
+using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
@@ -20,7 +22,7 @@ namespace ConfigurationHelper
                 return configuration;
             }
         }
-        public static string GetConnectionString (string name)
+        public static string GetConnectionString(string name)
         {
             return ConfigurationInstance.GetConnectionString(name);
         }

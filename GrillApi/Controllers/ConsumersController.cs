@@ -27,7 +27,7 @@ namespace GrillApi.Controllers
                 return Ok(repository.GetListAsync());
             }
             catch (Exception ex)
-            {
+            {  
                 return BadRequest(ex.Message);
             }
 
