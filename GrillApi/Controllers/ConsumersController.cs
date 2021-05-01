@@ -19,26 +19,26 @@ namespace GrillApi.Controllers
             this.repository = repository;
         }
 
+        //[HttpGet]
+        //public bool GetNull()
+        //{
+        //    return true;
+        //}
+
+
+
         [HttpGet]
-        public bool Get()
+        public async Task<IActionResult> Get()
         {
-            return true;
+            try
+            {
+                return Ok("dsads");// (repository.GetListAsync());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("dasdas");// ex.Message);
+            }
+
         }
-
     }
-
-    //[HttpGet]
-    //public async Task<IActionResult> Get()
-    //{
-    //    try
-    //    {
-    //        return Ok(repository.GetListAsync());
-    //    }
-    //    catch (Exception ex)
-    //    {  
-    //        return BadRequest(ex.Message);
-    //    }
-
-    //}
-//}
 }
