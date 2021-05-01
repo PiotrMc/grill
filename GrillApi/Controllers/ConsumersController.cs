@@ -20,17 +20,25 @@ namespace GrillApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public bool Get()
         {
-            try
-            {
-                return Ok(repository.GetListAsync());
-            }
-            catch (Exception ex)
-            {  
-                return BadRequest(ex.Message);
-            }
-
+            return true;
         }
+
     }
+
+    //[HttpGet]
+    //public async Task<IActionResult> Get()
+    //{
+    //    try
+    //    {
+    //        return Ok(repository.GetListAsync());
+    //    }
+    //    catch (Exception ex)
+    //    {  
+    //        return BadRequest(ex.Message);
+    //    }
+
+    //}
+//}
 }
