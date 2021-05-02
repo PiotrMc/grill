@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Repositories.Interfaces
+namespace Repositories.Interface
 {
     public interface IConsumersRepository
     {

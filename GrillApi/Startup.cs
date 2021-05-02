@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Repositories.Interfaces;
+using Repositories.Interface;
 using Repositories.Repos;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ namespace GrillApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<DbContext, Context>();
-            services.AddDbContext<Context>(o=>o.UseSqlServer(Configuration.GetConnectionString("SQLServer")));
+            services.AddDbContext<Context>(o => o.UseSqlServer(Configuration.GetConnectionString("SQLServer")));
             services.AddTransient<IConsumersRepository, ConsumersRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>

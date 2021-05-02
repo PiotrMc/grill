@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.Interfaces;
+using Repositories.Interface;
+using Repositories.Repos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,24 +20,16 @@ namespace GrillApi.Controllers
             this.repository = repository;
         }
 
-        //[HttpGet]
-        //public bool GetNull()
-        //{
-        //    return true;
-        //}
-
-
-
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult> Get()
         {
             try
             {
-                return Ok("dsads");// (repository.GetListAsync());
+                return Ok(repository.GetListAsync());
             }
             catch (Exception ex)
             {
-                return BadRequest("dasdas");// ex.Message);
+                return BadRequest(ex.Message);
             }
 
         }

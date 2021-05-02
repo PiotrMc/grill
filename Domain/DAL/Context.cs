@@ -14,6 +14,7 @@ namespace Domain.DAL
         public Context()
         {
             sqlServer = ConfigurationHelper.Configuration.GetConnectionString("SQLServer");
+            //Console.WriteLine(">>>>   "+ConfigurationHelper.Configuration.GetConnectionString("SQLServer"));
         }
 
         public Context(DbContextOptions<Context> options) : base(options)

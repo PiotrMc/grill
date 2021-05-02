@@ -1,6 +1,6 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Repositories.Interfaces;
+using Repositories.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,7 @@ namespace Repositories.Repos
     public class ConsumersRepository : IDisposable, IConsumersRepository
     {
         private readonly DbContext context;
+
         private readonly DbSet<Consumer> dbSet = null;
         public ConsumersRepository(DbContext context)
         {
@@ -26,7 +27,7 @@ namespace Repositories.Repos
 
         public async Task<List<Consumer>> GetListAsync()
         {
-            return await dbSet.ToListAsync();
+            return await dbSet.AsNoTracking().ToListAsync();
         }
         public async Task<int> AddAsync(Consumer item)
         {
