@@ -11,7 +11,7 @@ namespace Logger.Middleware
 {
     public static class RegisterLoggerServices
     {
-        public static IServiceCollection AddLogger<T>(this IServiceCollection services) //, IConfiguration configuration)
+        public static IServiceCollection AddLogger<T>(this IServiceCollection services) 
         {
             //var logger = new AppLogger<T>(configuration);
             //services.AddSingleton<ILogger>(logger);

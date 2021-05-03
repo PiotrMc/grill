@@ -17,11 +17,11 @@ namespace GrillApi.Controllers
     public abstract class SharedController<T> : ControllerBase where T : EntityHelper.Entity
     {
         private readonly IRepository<T> repository;
-
-        public SharedController(IRepository<T> repository)
+        protected ILogger Logger { get; }
+        public SharedController(IRepository<T> repository, ILogger logger)
         {
             this.repository = repository;
-
+            Logger = logger;
         }
 
         //public async Task<List<T>> Get()
@@ -32,10 +32,12 @@ namespace GrillApi.Controllers
         {
             try
             {
+                Logger.LogInformation("Entered method Get");
                 return Ok(await repository.GetListAsync());
             }
             catch (Exception ex)
             {
+                Logger.LogError(ex, ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -45,6 +47,7 @@ namespace GrillApi.Controllers
             var item = await repository.GetAsync(id);
             if (item == null)
             {
+                Logger.LogWarning($"Item id={id} not found. Method={nameof(Get)}");
                 return NotFound();
             }
             return Ok(item);
@@ -55,12 +58,15 @@ namespace GrillApi.Controllers
         {
             try
             {
+                Logger.LogInformation("Entered method Get");
                 return Ok(repository.GetListAdultsAsync());
             }
             catch (Exception ex)
             {
+                Logger.LogError(ex, ex.Message);
                 return BadRequest(ex.Message);
             }
+
         }
         //[HttpGet]
         //[Route("[action]/GetAdult")]
@@ -78,9 +84,10 @@ namespace GrillApi.Controllers
         //}
 
         [HttpPost]
-//        [KeyAuthorize(RoleType.Employee)]
+        //[KeyAuthorize(RoleType.Employee)]
         public async Task<ActionResult<T>> Post(T item)
         {
+            Logger.LogInformation("Method Post");
             await repository.AddAsync(item);
             await repository.SaveChangesAsync();
             return CreatedAtAction(nameof(Get), new { id = item.Id }, item);
@@ -89,8 +96,10 @@ namespace GrillApi.Controllers
         //[KeyAuthorize(RoleType.Employee)]
         public async Task<ActionResult> Put(int id, T item)
         {
+            Logger.LogInformation("Method Put");
             if (id != item.Id)
             {
+                Logger.LogWarning($"Item id not found. Method={nameof(Get)}");
                 return BadRequest();
             }
             await repository.UpdateAsync(item);
@@ -102,6 +111,7 @@ namespace GrillApi.Controllers
             {
                 if (!repository.FindBy(a => a.Id == id).Any())
                 {
+                    Logger.LogWarning($"Item id={id} not found. Method={nameof(Put)}");
                     return NotFound();
                 }
                 throw;
@@ -112,9 +122,11 @@ namespace GrillApi.Controllers
         //[KeyAuthorize(RoleType.Employee)]
         public async Task<ActionResult<T>> Delete(int id)
         {
+            Logger.LogInformation("Method Delete");
             var item = await repository.GetAsync(id);
             if (item == null)
             {
+                Logger.LogWarning($"Item id={id} not found. Method={nameof(Delete)}");
                 return NotFound();
             }
             await repository.DeleteAsync(id);

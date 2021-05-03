@@ -20,7 +20,7 @@ namespace GrillApi.Controllers
 
     public class ConsumersController : SharedController<Consumer>
     {
-        public ConsumersController(IRepository<Consumer> repository) : base(repository)
+        public ConsumersController(IRepository<Consumer> repository, ILogger<ConsumersController> logger) : base(repository, logger)
         {
         }
     }

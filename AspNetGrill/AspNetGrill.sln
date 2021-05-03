@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{45124181-A682-4CD6-B74D-39C9049B6DF3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrillApi", "..\GrillApi\GrillApi.csproj", "{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5717371B-37E5-4B06-A77C-3F60E50D47A2} = {5717371B-37E5-4B06-A77C-3F60E50D47A2}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{F64028BF-38DC-4D42-AC2C-52593D086BA9}"
 EndProject
