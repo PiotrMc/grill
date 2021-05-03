@@ -7,8 +7,8 @@ namespace LoggerTester
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            ILogger logger = new Logger.AppLogger<Program>("C://Logs//Logger.db");
+            Console.WriteLine("Stay wait a while...");
+            ILogger logger = new Logger.AppLogger<Program>("C://Logs//LoggerGrill.db");
             try
             {
                 logger.LogInformation("To jest test");
