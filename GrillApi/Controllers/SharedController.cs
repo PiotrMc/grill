@@ -51,11 +51,11 @@ namespace GrillApi.Controllers
         }
 
         [HttpGet("AdultsOnly")]
-        public async Task<IActionResult> GetAdults()
+        public async Task<IActionResult> GetListAdultsAsync()
         {
             try
             {
-                return Ok(await repository.GetListAdultsAsync());
+                return Ok(repository.GetListAdultsAsync());
             }
             catch (Exception ex)
             {

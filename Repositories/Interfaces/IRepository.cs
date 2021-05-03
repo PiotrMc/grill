@@ -12,10 +12,11 @@ namespace Repositories.Interfaces
     {
         Task<T> GetAsync(int id);
         Task<List<T>> GetListAsync();
-        Task<List<T>> GetListAdultsAsync();
+//        Task<List<T>> GetListAdultsAsync();
         Task<int> AddAsync(T item);
         Task<bool> UpdateAsync(T item);
         Task<bool> DeleteAsync(int id);
+        IQueryable<T> GetListAdultsAsync();
         void Dispose();
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
         Task SaveChangesAsync();

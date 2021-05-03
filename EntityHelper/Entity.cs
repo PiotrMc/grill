@@ -6,8 +6,16 @@ namespace EntityHelper
 {
     public class Entity
     {
+
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [Column]
+        public DateTime ConsumerDateofBirth { get; }
+
+        [Column]
+        public string ConsumerFirstName { get; }
     }
 }

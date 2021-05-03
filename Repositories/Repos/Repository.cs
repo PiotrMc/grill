@@ -68,16 +68,30 @@ namespace Repositories.Repos
             return false;
         }
 
-        public async Task<List<T>> GetListAdultsAsync()
+        public IQueryable<T> GetListAdultsAsync()
         {
-            return await SqlFunctions.DateDiff("yy", context.ConsumerDateofBirth);
-                //dbSet.Where(p=> SqlFunctions.DateDiff("day", p.Id. context. .ConsumerDateofBirth, SqlFunctions.GetDate()) / 365.2425 > 18).ToListAsync();
+        DateTime currentDate18 = DateTime.Now.AddYears(-18);
+            return dbSet.Where(p => p.ConsumerDateofBirth <= currentDate18).AsQueryable(); 
+        //    //return dbSet.Where(p => p.TValue > 50 && p.TValue < 70 || p.Currency != "PLN").AsQueryable();
+        //    //            return dbSet.Where(predicate).AsQueryable();
+        //    return dbSet.Where(p => SqlFunctions.DateDiff("day", p.ConsumerDateofBirth, p.ConsumerDateofBirth) != null);
         }
+        
+        //public async Task<List<T>> GetListAdultsAsync()
+        //{
+        //    //            return dbSet.Where(p =>SqlFunctions.DateDiff("day",p.ConsumerDateofBirth, SqlFunctions.GetDate()) > 1000);
+        //    //(p => SqlFunctions.DateDiff("day", SqlFunctions.GetDate(), SqlFunctions.GetDate()) < 18).ToListAsync(); // / 365.2425 
+        //    //            return dbSet.Where(p => p. > 50 && p.TValue < 70 || p.Currency != "PLN").AsQueryable();
+
+        //    DateTime currentDate = DateTime.Now.AddYears(-18);
+        //    return await dbSet.Where(p => p.ConsumerDateofBirth == currentDate).ToListAsync();
+        //}
 
         public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
             //return dbSet.Where(p => p.TValue > 50 && p.TValue < 70 || p.Currency != "PLN").AsQueryable();
-            return dbSet.Where(predicate).AsQueryable();
+            //            return dbSet.Where(predicate).AsQueryable();
+            return dbSet.Where(p => SqlFunctions.DateDiff("day", p.ConsumerDateofBirth, SqlFunctions.GetDate()) > 1000);
         }
 
         public async Task SaveChangesAsync()
