@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 using Repositories.Interfaces;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace GrillApi.Controllers
@@ -48,11 +50,31 @@ namespace GrillApi.Controllers
             return Ok(item);
         }
 
+        [HttpGet("AdultsOnly")]
+        public async Task<IActionResult> GetAdults()
+        {
+            try
+            {
+                return Ok(await repository.GetListAdultsAsync());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         //[HttpGet]
-        //[Route("[action]/{text}")]
+        //[Route("[action]/GetAdult")]
         //public async Task<IActionResult> GetByOk(string text)
         //{
         //    return Ok(text);
+        //}
+
+        //[HttpGet]
+        //[Route("GetAdults")]
+        //public async Task<IActionResult> GetListAdultsAsync();
+        //{
+        //    return (await repository.GetListAsync());
+
         //}
 
         [HttpPost]

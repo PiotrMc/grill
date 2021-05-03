@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.SqlServer;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -43,6 +44,7 @@ namespace Repositories.Repos
                 return -1;
             }
         }
+
         public async Task<bool> UpdateAsync(T item)
         {
             try
@@ -65,6 +67,13 @@ namespace Repositories.Repos
             }
             return false;
         }
+
+        public async Task<List<T>> GetListAdultsAsync()
+        {
+            return await SqlFunctions.DateDiff("yy", context.ConsumerDateofBirth);
+                //dbSet.Where(p=> SqlFunctions.DateDiff("day", p.Id. context. .ConsumerDateofBirth, SqlFunctions.GetDate()) / 365.2425 > 18).ToListAsync();
+        }
+
         public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
             //return dbSet.Where(p => p.TValue > 50 && p.TValue < 70 || p.Currency != "PLN").AsQueryable();

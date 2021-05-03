@@ -12,6 +12,7 @@ namespace Repositories.Interfaces
     {
         Task<T> GetAsync(int id);
         Task<List<T>> GetListAsync();
+        Task<List<T>> GetListAdultsAsync();
         Task<int> AddAsync(T item);
         Task<bool> UpdateAsync(T item);
         Task<bool> DeleteAsync(int id);
