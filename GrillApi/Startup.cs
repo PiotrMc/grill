@@ -1,4 +1,6 @@
 using Domain.DAL;
+using Domain.Models;
+using GrillApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Repositories.Interface;
+using Repositories.Interfaces;
 using Repositories.Repos;
 using System;
 using System.Collections.Generic;
@@ -30,9 +32,10 @@ namespace GrillApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddTransient<DbContext, Context>();
             services.AddDbContext<Context>(o => o.UseSqlServer(Configuration.GetConnectionString("SQLServer")));
-            services.AddTransient<IConsumersRepository, ConsumersRepository>();
+            services.AddRepositories();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

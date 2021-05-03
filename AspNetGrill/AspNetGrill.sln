@@ -5,22 +5,19 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{45124181-A682-4CD6-B74D-39C9049B6DF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrillApi", "..\GrillApi\GrillApi.csproj", "{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE} = {D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrillApi", "..\GrillApi\GrillApi.csproj", "{804D5FA3-0CEB-4937-A7DD-F66C118CE80B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{F64028BF-38DC-4D42-AC2C-52593D086BA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityHelper", "..\EntityHelper\EntityHelper.csproj", "{6229F263-1962-4E58-AAD6-7522F2BAE99F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityHelper", "..\EntityHelper\EntityHelper.csproj", "{6229F263-1962-4E58-AAD6-7522F2BAE99F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D1D2C9C7-4403-446E-B0B6-907EAC36B930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "..\Domain\Domain.csproj", "{D90B2D14-ACA0-4B04-99AD-D296B7D9C0DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationHelper", "..\ConfigurationHelper\ConfigurationHelper.csproj", "{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationHelper", "..\ConfigurationHelper\ConfigurationHelper.csproj", "{BEEE55E3-8C2F-422C-995E-DBA7D916E85A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "..\Repositories\Repositories.csproj", "{B16D48ED-B3E2-4536-B31D-4763C08577DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "..\Repositories\Repositories.csproj", "{B16D48ED-B3E2-4536-B31D-4763C08577DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{0E77F36B-2D86-4217-B1AA-724D010ADD0A}"
 EndProject

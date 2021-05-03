@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain.DAL;
+using Domain.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.Interface;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Repositories.Interfaces;
 using Repositories.Repos;
 using System;
 using System.Collections.Generic;
@@ -11,27 +15,11 @@ namespace GrillApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ConsumersController : ControllerBase
+    public class ConsumersController : SharedController<Consumer>
     {
-        private readonly IConsumersRepository repository;
-
-        public ConsumersController(IConsumersRepository repository)
+        public ConsumersController(IRepository<Consumer> repository) : base(repository)
         {
-            this.repository = repository;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Get()
-        {
-            try
-            {
-                return Ok(repository.GetListAsync());
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
-        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Repositories.Interface;
+using Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +10,28 @@ using System.Threading.Tasks;
 
 namespace Repositories.Repos
 {
-    public class ConsumersRepository : IDisposable, IConsumersRepository
+    public class Repository<T> : IDisposable, IRepository<T> where T : EntityHelper.Entity
     {
         private readonly DbContext context;
+        private readonly DbSet<T> dbSet = null;
 
-        private readonly DbSet<Consumer> dbSet = null;
-        public ConsumersRepository(DbContext context)
+        public Repository(DbContext context)
         {
             this.context = context;
-            dbSet = context.Set<Consumer>();
+            dbSet = context.Set<T>();
         }
-        public async Task<Consumer> GetAsync(int id)
+
+        public async Task<T> GetAsync(int id)
         {
+            //return await context.Set<T>().FindAsync(id);
             return await dbSet.FindAsync(id);
         }
 
-        public async Task<List<Consumer>> GetListAsync()
+        public async Task<List<T>> GetListAsync()
         {
             return await dbSet.AsNoTracking().ToListAsync();
         }
-        public async Task<int> AddAsync(Consumer item)
+        public async Task<int> AddAsync(T item)
         {
             try
             {
@@ -38,12 +40,10 @@ namespace Repositories.Repos
             }
             catch (Exception)
             {
-
                 return -1;
             }
-
         }
-        public async Task<bool> UpdateAsync(Consumer item)
+        public async Task<bool> UpdateAsync(T item)
         {
             try
             {
@@ -55,7 +55,6 @@ namespace Repositories.Repos
                 return false;
             }
         }
-
         public async Task<bool> DeleteAsync(int id)
         {
             var item = await GetAsync(id);
@@ -66,16 +65,16 @@ namespace Repositories.Repos
             }
             return false;
         }
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        {
+            //return dbSet.Where(p => p.TValue > 50 && p.TValue < 70 || p.Currency != "PLN").AsQueryable();
+            return dbSet.Where(predicate).AsQueryable();
+        }
+
         public async Task SaveChangesAsync()
         {
             await context.SaveChangesAsync();
         }
-
-        public IQueryable<Consumer> FindBy(Expression<Func<Consumer, bool>> predicate)
-        {
-            return dbSet.Where(predicate).AsQueryable();
-        }
-        public DbContext Context { get; }
 
         public void Dispose()
         {
