@@ -3,4 +3,4 @@
 
 ###
 
-GET {{URL}}/shared
+GET {{URL}}/api/Consumer
