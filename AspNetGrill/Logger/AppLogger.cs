@@ -59,9 +59,9 @@ namespace Logger
                 });
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw;
+                throw ;
             }
         }
     }

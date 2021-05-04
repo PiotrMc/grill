@@ -16,8 +16,6 @@ namespace GrillApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
-
     public class ConsumersController : SharedController<Consumer>
     {
         public ConsumersController(IRepository<Consumer> repository, ILogger<ConsumersController> logger) : base(repository, logger)

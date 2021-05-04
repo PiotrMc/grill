@@ -15,8 +15,6 @@ namespace GrillApi.Middleware
         {
             services.AddTransient<IRepository<Consumer>, Repository<Consumer>>(); //Dependency Injection  
 
-            //services.AddScoped<IPricesRepository, PricesRepository>();
-            //services.AddSingleton<IPricesRepository, PricesRepository>();
             return services;
         }
     }
