@@ -16,6 +16,8 @@ namespace GrillApi.Middleware
         public static IServiceCollection AddLoggers(this IServiceCollection services)
         {
             services.AddLogger<ConsumersController>();
+            services.AddLogger<ParticipantsController>();
+            services.AddLogger<EventsController>();
             return services;
         }
     }

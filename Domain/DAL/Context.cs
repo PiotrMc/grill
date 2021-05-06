@@ -11,6 +11,10 @@ namespace Domain.DAL
     public class Context : DbContext
     {
         public DbSet<Consumer> Consumers { get; set; }
+        public DbSet <Event>  Events { get; set; }
+        public DbSet <Participant> Participants  { get; set; }
+
+
         public Context()
         {
             sqlServer = ConfigurationHelper.Configuration.GetConnectionString("SQLServer");
